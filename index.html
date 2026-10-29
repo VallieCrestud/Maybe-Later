@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Maybe Later helps you pause, reflect, and make more intentional buying decisions."
+  >
+
+  <meta name="theme-color" content="#fffdf6">
+
+  <title>Maybe Later — Pause, Think, Then Decide</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="#" class="logo" id="logo" aria-label="Maybe Later home">
+      Maybe<span>Later.</span>
+    </a>
+
+    <button
+      type="button"
+      class="language-toggle"
+      id="language-toggle"
+      aria-label="Change website language"
+    >
+      EN / ID
+    </button>
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="app-container">
+
+    <!-- PAGE 1: START -->
+    <section class="page" id="page-start">
+
+      <p class="eyebrow" id="start-eyebrow">
+        YOUR MINDFUL SHOPPING SPACE
+      </p>
+
+      <h1 id="start-title">
+        You can want it<br>
+        <span>without buying it today.</span>
+      </h1>
+
+      <p class="intro" id="start-description">
+        A little pause can help you make a choice that feels right for you.
+      </p>
+
+      <!-- Progress indicator -->
+      <div class="progress" aria-label="Step 1 of 3">
+        <span class="progress-step active"></span>
+        <span class="progress-step"></span>
+        <span class="progress-step"></span>
+      </div>
+
+      <!-- Purchase form -->
+      <form class="purchase-card" id="purchase-form">
+
+        <h2 id="form-title">
+          Let's start with your wishlist item
+        </h2>
+
+        <label for="item-name" id="item-label">
+          What do you want to buy?
+        </label>
+
+        <input
+          type="text"
+          id="item-name"
+          name="itemName"
+          placeholder="e.g. A new skincare serum"
+          maxlength="120"
+          required
+        >
+
+        <label for="item-price" id="price-label">
+          What's the price? (IDR)
+        </label>
+
+        <input
+          type="number"
+          id="item-price"
+          name="itemPrice"
+          placeholder="e.g. 150000"
+          min="1"
+          step="1"
+          required
+        >
+
+        <label for="item-category" id="category-label">
+          Which category?
+        </label>
+
+        <select id="item-category" name="itemCategory" required>
+          <option value="" id="category-placeholder">
+            Choose a category
+          </option>
+
+          <option value="skincare">Skincare</option>
+          <option value="makeup">Makeup</option>
+          <option value="clothing">Clothing</option>
+          <option value="gadgets">Gadgets</option>
+          <option value="daily-needs">Daily needs</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="item-budget" id="budget-label">
+          Your budget for this item (IDR)
+        </label>
+
+        <input
+          type="number"
+          id="item-budget"
+          name="itemBudget"
+          placeholder="e.g. 200000"
+          min="0"
+          step="1"
+          required
+        >
+
+        <label for="item-reason" id="reason-label">
+          Why do you want it?
+        </label>
+
+        <textarea
+          id="item-reason"
+          name="itemReason"
+          placeholder="I need it because..."
+          maxlength="1000"
+          required
+        ></textarea>
+
+        <button
+          type="submit"
+          class="primary-button"
+          id="continue-button"
+        >
+          Let's think it through →
+        </button>
+
+      </form>
+    </section>
+
+
+    <!-- PAGE 2: REFLECTION QUESTIONS -->
+    <section class="page" id="page-check" hidden>
+
+      <p class="eyebrow" id="check-eyebrow">
+        A MOMENT OF REFLECTION
+      </p>
+
+      <h1 id="check-title">
+        Before you add something new...
+      </h1>
+
+      <p class="intro" id="check-description">
+        Let's see whether you already have something that does the same job.
+      </p>
+
+      <!-- Progress indicator -->
+      <div class="progress" aria-label="Step 2 of 3">
+        <span class="progress-step completed"></span>
+        <span class="progress-step active"></span>
+        <span class="progress-step"></span>
+      </div>
+
+      <form class="purchase-card" id="reflection-form">
+
+        <h2 id="reflection-form-title">
+          A couple of questions before you decide
+        </h2>
+
+        <label for="similar-items" id="similar-label">
+          Do you already own something similar?
+        </label>
+
+        <textarea
+          id="similar-items"
+          name="similarItems"
+          placeholder="List similar items you already own..."
+          maxlength="1000"
+        ></textarea>
+
+        <label for="existing-condition" id="condition-label">
+          Can your current item still be used?
+        </label>
+
+        <select id="existing-condition" name="existingCondition" required>
+          <option value="" id="condition-placeholder">
+            Choose an answer
+          </option>
+
+          <option value="usable">Yes, it's still usable</option>
+          <option value="almost-finished">Almost finished</option>
+          <option value="empty">It's empty or no longer usable</option>
+          <option value="none">I don't own a similar item</option>
+        </select>
+
+        <label for="purchase-urgency" id="urgency-label">
+          When do you actually need it?
+        </label>
+
+        <select id="purchase-urgency" name="purchaseUrgency" required>
+          <option value="" id="urgency-placeholder">
+            Choose an answer
+          </option>
+
+          <option value="now">I need it now</option>
+          <option value="soon">Within the next few weeks</option>
+          <option value="later">It's just something I want</option>
+        </select>
+
+        <div class="button-group">
+
+          <button
+            type="button"
+            class="secondary-button"
+            id="back-button"
+          >
+            ← Back
+          </button>
+
+          <button
+            type="submit"
+            class="primary-button"
+            id="reflection-continue"
+          >
+            See my reflection →
+          </button>
+
+        </div>
+      </form>
+    </section>
+
+
+    <!-- PAGE 3: PERSONALIZED RESULT -->
+    <section class="page" id="page-result" hidden>
+
+      <p class="eyebrow" id="result-eyebrow">
+        YOUR BUYING REFLECTION
+      </p>
+
+      <h1 id="result-title">
+        Let's look at the bigger picture.
+      </h1>
+
+      <p class="intro" id="result-description">
+        There's no right or wrong answer. The goal is to make an intentional choice.
+      </p>
+
+      <!-- Progress indicator -->
+      <div class="progress" aria-label="Step 3 of 3">
+        <span class="progress-step completed"></span>
+        <span class="progress-step completed"></span>
+        <span class="progress-step active"></span>
+      </div>
+
+      <article class="purchase-card result-card">
+
+        <p class="result-item-label" id="result-item-label">
+          YOUR ITEM
+        </p>
+
+        <h2 id="result-item-name">Your item</h2>
+
+        <div class="result-summary">
+
+          <div>
+            <p id="result-price-label">Price</p>
+            <strong id="result-price">Rp0</strong>
+          </div>
+
+          <div>
+            <p id="result-budget-label">Your budget</p>
+            <strong id="result-budget">Rp0</strong>
+          </div>
+
+        </div>
+
+        <div class="insight-panel">
+
+          <h3 id="insight-title">
+            A thought to consider
+          </h3>
+
+          <div id="result-insight" aria-live="polite">
+            Your personalized reflection will appear here.
+          </div>
+
+        </div>
+
+        <div class="button-group">
+
+          <button
+            type="button"
+            class="secondary-button"
+            id="result-back-button"
+          >
+            ← Review answers
+          </button>
+
+          <button
+            type="button"
+            class="primary-button"
+            id="wishlist-button"
+          >
+            Maybe later ♡
+          </button>
+
+        </div>
+
+        <button
+          type="button"
+          class="text-button"
+          id="restart-button"
+        >
+          Start again
+        </button>
+
+      </article>
+    </section>
+
+
+    <!-- PAGE 4: WAITING PERIOD AND WISHLIST -->
+    <section class="page" id="page-wishlist" hidden>
+
+      <p class="eyebrow" id="wishlist-eyebrow">
+        GIVE YOURSELF SOME TIME
+      </p>
+
+      <h1 id="wishlist-title">
+        Good things can wait.
+      </h1>
+
+      <p class="intro" id="wishlist-description">
+        Save your item and give yourself time to reconsider before buying.
+      </p>
+
+      <article class="purchase-card">
+
+        <h2 id="wishlist-item-name">
+          Your item
+        </h2>
+
+        <p id="wishlist-item-price">Rp0</p>
+
+        <label for="waiting-period" id="waiting-label">
+          How long would you like to wait?
+        </label>
+
+        <select id="waiting-period" required>
+
+          <option value="3d" id="wait-3">3 days</option>
+          <option value="7d" id="wait-7" selected>7 days</option>
+
+          <option value="2w" id="wait-2w">2 weeks</option>
+          <option value="3w" id="wait-3w">3 weeks</option>
+          <option value="4w" id="wait-4w">4 weeks</option>
+          
+          <option value="2m" id="wait-2m">2 months</option>
+          <option value="3m" id="wait-3m">3 months</option>
+          <option value="4m" id="wait-4m">4 months</option>
+          <option value="5m" id="wait-5m">5 months</option>
+          <option value="6m" id="wait-6m">6 months</option>
+          <option value="9m" id="wait-9m">9 months</option>
+
+          <option value="1y" id="wait-1y">1 year</option>
+          <option value="2y" id="wait-2y">2 years</option>
+          <option value="3y" id="wait-3y">3 years</option>
+          <option value="5y" id="wait-5y">5 years</option>
+
+          <option value="custom" id="wait-custom">
+            Custom duration
+          </option>
+
+        </select>
+        
+<div id="custom-duration-fields" hidden>
+  <label for="custom-duration-value" id="custom-duration-label">
+    Enter your waiting period
+  </label>
+
+  <input
+    type="number"
+    id="custom-duration-value"
+    min="1"
+    max="120"
+    step="1"
+    placeholder="e.g. 10"
+  >
+
+  <label for="custom-duration-unit" id="custom-duration-unit-label">
+    Choose a unit
+  </label>
+
+  <select id="custom-duration-unit">
+    <option value="d">Days</option>
+    <option value="w">Weeks</option>
+    <option value="m">Months</option>
+    <option value="y">Years</option>
+  </select>
+</div>
+
+
+        <div class="insight-panel">
+
+          <p id="countdown-label">
+            Your reconsideration date
+          </p>
+
+          <strong id="reconsider-date" aria-live="polite">
+            Choose a waiting period
+          </strong>
+
+        </div>
+
+        <p id="wishlist-feedback" role="status" aria-live="polite"></p>
+
+        <div class="button-group">
+
+          <button
+            type="button"
+            class="secondary-button"
+            id="wishlist-back-button"
+          >
+            ← Back
+          </button>
+
+          <button
+            type="button"
+            class="primary-button"
+            id="save-wishlist-button"
+          >
+            Save to wishlist ♡
+          </button>
+
+        </div>
+      </article>
+
+
+      <!-- SAVED WISHLIST ITEMS -->
+      <section class="saved-items-section">
+
+        <h2 id="saved-items-title">
+          Your wishlist
+        </h2>
+
+        <div id="saved-items-list" aria-live="polite">
+          <p>Your wishlist is waiting for its first item.</p>
+        </div>
+
+      </section>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <p id="footer-text">
+      Made with care · Maybe Later © 2026
+    </p>
+
+    <p id="footer-tagline">
+      Pause, Think, Then Decide.
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
